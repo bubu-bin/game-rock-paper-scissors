@@ -21,8 +21,6 @@
   position: absolute;
   bottom: 0;
   right: 0;
-
-  /* border: none; */
   background: none;
   font-size: 3rem;
   display: none;
@@ -48,15 +46,10 @@
 }
 
 .container-starter{
-  top: 25%;
-  left: 50%;
-  position: absolute;
-
+  top: 5%;
+  position: relative;
   font-size: 40px;
-  transform: translate(-50%,-50%);
   z-index: 1;
-
-
 }
 
 .container-starter p{
@@ -89,7 +82,7 @@
 
 .avatars-selection p{
   font-size: 24px;
-  margin-top: 30px;
+  margin-top: 40%;
   font-weight: 700;
  background: -webkit-linear-gradient(90deg, black,black);
  -webkit-background-clip: text;
@@ -101,12 +94,21 @@
   height: 75%;
   width: 75%;
   position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* opacity: .8; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  top: 15%;
 }
 
+.img-in-start-active{
+  transform: scale(1.5);
+  height: 75%;
+  width: 75%;
+  position: relative;
+  transition: 125ms;
+  /* top: 50%;
+  left: 50%; */
+}
 
 
 
@@ -117,17 +119,17 @@
 }
 
 
+/* TU */
 .flexbox-details {
-  /* width: 80%; */
+  width: 80%;
   height: 50%;
-  /* right: 10%; */
-  position: absolute;
-  top: 135%;
+  right: -10%;
+  position: relative;
   display: none;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 30px;
+
 }
 
 .starter-description{
@@ -137,7 +139,7 @@
   display: flex;
   justify-content:  center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 3%;
   background: #3C6882;
   padding: 1rem;
   border-radius: 10px;
@@ -163,7 +165,7 @@
   flex-direction: column;
   justify-content:  flex-start;
   align-items: flex-start;
-  margin-top: 30px;
+  margin-top: 6%;
 
 }
 
@@ -173,7 +175,6 @@
  background: -webkit-linear-gradient(90deg, black,black);
  -webkit-background-clip: text;
  -webkit-text-fill-color: transparent;
- /* position: absolute; */
  text-align: left;
   margin-bottom: 0;
 }
@@ -220,7 +221,7 @@ width: 65%;
 background: #CACED1;
 }
 
-
+/* Ale ten chyba juz moze byc co nie */
 .container-the-winner{
   top: 40%;
   left: 50%;
@@ -269,8 +270,8 @@ background: #CACED1;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  display: flex;
-  opacity: .02;
+  display: none;
+
 }
 
 

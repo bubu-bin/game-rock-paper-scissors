@@ -19,43 +19,39 @@ var skill2Name = document.getElementById("skill2Name");
 var skill2Percent = document.getElementById("skill2Percent");
 var topLayerSkilleTwo = document.querySelector(".top-layer-skill-2");
 
-
 var playBtn = document.querySelector('#playThisButton')
-
-
-
 
 Avatar = [
   {name: "penguin",
-  src:"C:/Users/gadzi/Desktop/Icons ready to go/SVG/Penguin.svg",
+  src:"C:/Users/gadzi/Desktop/Icons ready to go/SVG/RPS/Penguin.svg",
   description:"Isn't he cute? Watch out for him. He may outsmart you quickly and use your flaws against you.",
   skillonename: "Cuteness",
   skillonepercent: "94%",
   skilltwoname:"Cunigness",
   skilltwopercent: "82%"},
   {name: "turtle",
-  src:"C:/Users/gadzi/Desktop/Icons ready to go/SVG/Rzulwik.svg",
+  src:"C:/Users/gadzi/Desktop/Icons ready to go/SVG/RPS/Rzulwik.svg",
   description:"Hardy, hardy, hardy. Good old hardy. Very competitive boy. Never hides under the shell - only when he goes to sleep.",
   skillonename: "Hardness",
   skillonepercent: "55%",
   skilltwoname:"Rivalry",
   skilltwopercent: "79%"},
   {name: "johnycoco",
-  src:"C:/Users/gadzi/Desktop/Icons ready to go/SVG/johny coco.svg",
+  src:"C:/Users/gadzi/Desktop/Icons ready to go/SVG/RPS/johny coco.svg",
   description: "Can you see eyes of Johny Coco? He is loco. He tries to find the treasure as he believes buried under the ground.",
   skillonename: "Insanity",
   skillonepercent: "99.99%",
   skilltwoname:"Selfish",
   skilltwopercent: "85%"},
   {name: "coolpi",
-  src:"C:/Users/gadzi/Desktop/Icons ready to go/SVG/Cool Pi.svg",
+  src:"C:/Users/gadzi/Desktop/Icons ready to go/SVG/RPS/Cool Pi.svg",
   description:"Outside - gangster raper. Everyone respects him. Inside vulnerable like a feather. What he does for living? It's not your business.",
   skillonename: "Charisma",
   skillonepercent: "83%",
   skilltwoname:"Patience",
   skilltwopercent: "64%"},
   {name: "kotfunia",
-  src:"C:/Users/gadzi/Desktop/Icons ready to go/SVG/kot Funia.svg",
+  src:"C:/Users/gadzi/Desktop/Icons ready to go/SVG/RPS/kot Funia.svg",
   description:"Everyone refers to her as a mother. Dreams about blue migdals. Funia is the best!",
   skillonename: "Pride",
   skillonepercent: "100%",
@@ -69,33 +65,31 @@ imagesInStart.forEach(image => {
 
       playBtn.style.display = "block";
 
-
       for (var i = 0; i < image.length; i++) {
         console.log(image[i]);
       }
       const currentAvatar = image.dataset.myav;
       const objCurrentAvatar = Avatar.find(findAvatar);
 
-      //
-
-
       function  findAvatar(obj) {
         return obj.name === currentAvatar;
       }
 
+      if (!image.classList.contains('img-in-start-active')) {
+        image.classList.add('img-in-start-active');
+      } else {
+        image.classList.remove('img-in-start-active')
+      }
+
 
       playBtn.addEventListener('click', () =>{
+        gameBoard.style.display = "flex";
         avatarsSelection.style.display = "none";
         gameBoard.style.opacity = "1";
         userAvatar.style.visibility= "visible";
         userAvatar.src = objCurrentAvatar.src;
         playBtn.style.display = "none"
       })
-
-
-
-
-
 
       descriptionId.textContent = objCurrentAvatar.description;
       skill1Name.textContent = objCurrentAvatar.skillonename;
@@ -107,19 +101,8 @@ imagesInStart.forEach(image => {
       topLayerSkilleTwo.style.width = objCurrentAvatar.skilltwopercent;
 
       detailsSection.style.display = "flex";
-
-
-
-
     })
-
-
   });
-
-
-
-
-
 
 
 
@@ -142,13 +125,13 @@ var playAgainBtn = document.querySelector(".play-again");
 RPS = [
   {name: "paper",
   beats: "rock",
-  src: "C:/Users/gadzi/Desktop/Icons ready to go/SVG/Paper.svg"},
+  src: "C:/Users/gadzi/Desktop/Icons ready to go/SVG/RPS/Paper.svg"},
   {name: "rock",
   beats: "scissors",
-  src:"C:/Users/gadzi/Desktop/Icons ready to go/SVG/Rock.svg"},
+  src:"C:/Users/gadzi/Desktop/Icons ready to go/SVG/RPS/Rock.svg"},
   {name: "scissors",
   beats: "paper",
-  src: "C:/Users/gadzi/Desktop/Icons ready to go/SVG/Scissor.svg"},
+  src: "C:/Users/gadzi/Desktop/Icons ready to go/SVG/RPS/Scissor.svg"},
 ];
 
 
@@ -163,7 +146,6 @@ optionsRPS.forEach(function(element){
       return someObj.name === currentSelection;
     }
 
-
     showSelection(objSelection);
   })
 
@@ -173,8 +155,6 @@ optionsRPS.forEach(function(element){
   var counterUser = 3;
 
 function showSelection(rockPaperScissors){
-
-
 
   // Rules of the game
 
@@ -210,7 +190,9 @@ function showSelection(rockPaperScissors){
   if (counterPC === 2 || counterUser === 0) {
 
 
-
+    optionsRPS.forEach(option => {
+      option.disabled = true;
+    })
     gameBoard.style.opacity = "0.1";
     gameBoardEnd.style.display = "flex";
 
@@ -222,10 +204,7 @@ function showSelection(rockPaperScissors){
       title.textContent = "You lost"
     }
 
-
     playAgainBtn.addEventListener('click', () => {
-
-
 
       numberLeftIncrease.textContent = 0;
       numberRightIncrease.textContent = 0;
@@ -243,6 +222,10 @@ function showSelection(rockPaperScissors){
 
       displaySelectionUser.style.visibility = "hidden";
       displaySelectionPC.style.visibility = "hidden";
+
+      optionsRPS.forEach(option => {
+        option.disabled = false;
+      })
     })
 
   }
